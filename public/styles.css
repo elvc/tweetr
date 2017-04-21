@@ -1,0 +1,162 @@
+@import url("/vendor/normalize-4.1.1.css");
+@import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i");
+/*
+* http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+* https://css-tricks.com/international-box-sizing-awareness-day/
+* Do not modify these two selectors, please
+*/
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  box-sizing: inherit; }
+
+/*
+* Global layout stuff
+*/
+* {
+  font-family: 'Roboto Condensed', sans-serif; }
+
+body {
+  margin: 0;
+  color: #244751;
+  background-color: #eee; }
+
+/*
+* Additional CSS can be defined below or in other CSS files, as per instructions
+*/
+main {
+  background: #fff;
+  width: 450px;
+  height: 100%;
+  margin: 80px auto 0; }
+
+.base, .nav-bar {
+  box-sizing: border-box;
+  width: 100%; }
+
+.nav-bar {
+  position: fixed;
+  height: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #00a087;
+  font: #e8fdff;
+  padding: 0 2em;
+  z-index: 100; }
+  .nav-bar .logo {
+    float: left;
+    width: 80px;
+    height: 80px; }
+  .nav-bar .header {
+    float: left;
+    margin-left: 10px;
+    line-height: 80px;
+    font-size: 2em; }
+  .nav-bar .compose {
+    float: right;
+    padding: 20px;
+    margin-top: 8px;
+    background: #fff;
+    color: #00a087;
+    border-radius: 10px;
+    font-weight: 700; }
+  .nav-bar .compose:hover {
+    background: #e6e6e6; }
+
+.clearfix, .new-tweet form:after, .tweets-container header:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.new-tweet {
+  border-radius: 10px;
+  position: relative;
+  top: 20px;
+  border: 1px solid #c8c8c8;
+  margin: 0 2em 3em;
+  padding: 15px;
+  background: #d8d8d8; }
+  .new-tweet h2 {
+    border-bottom: 2px #000 solid;
+    margin-top: 0;
+    line-height: 2; }
+  .new-tweet form {
+    margin-top: 15px; }
+  .new-tweet textarea {
+    display: block;
+    width: 100%;
+    height: 80px;
+    padding: 10px; }
+  .new-tweet input[type="submit"] {
+    display: block;
+    float: left;
+    margin-top: 5px;
+    padding: 10px; }
+  .new-tweet .counter {
+    float: right; }
+  .new-tweet .error {
+    color: #ff0000;
+    margin-left: 20px;
+    line-height: 3; }
+  .new-tweet span {
+    display: inline;
+    margin-top: 5px;
+    line-height: 38px;
+    font-style: italic; }
+
+.clearfix, .new-tweet form:after, .tweets-container header:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.tweets-container {
+  position: relative;
+  margin: 0 2em 3em;
+  top: 20px; }
+  .tweets-container article {
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: 0 0 30px 0;
+    border: 1px #969696 solid; }
+    .tweets-container article:hover footer .social {
+      display: inline; }
+  .tweets-container .avatar {
+    box-sizing: border-box;
+    float: left;
+    padding: 5px; }
+    .tweets-container .avatar img {
+      border-radius: 10px; }
+  .tweets-container .content {
+    border-bottom: 1px solid #b4b4b4;
+    padding: 20px;
+    overflow-wrap: break-word; }
+  .tweets-container header {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #d8d8d8;
+    height: 65px; }
+    .tweets-container header h2 {
+      display: inline;
+      float: left;
+      margin-top: 23px;
+      padding: 0 10px;
+      line-height: 0.7; }
+    .tweets-container header .handle {
+      float: right;
+      padding: 10px;
+      margin-top: 11px; }
+  .tweets-container footer {
+    height: 40px; }
+    .tweets-container footer .postdate {
+      float: left;
+      padding: 10px; }
+    .tweets-container footer .social {
+      display: none;
+      color: #07b284;
+      float: right;
+      padding: 10px; }
+      .tweets-container footer .social span {
+        padding: 5px; }

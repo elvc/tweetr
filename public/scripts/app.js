@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // handle XSS
+
   function escape(str) {
     const div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -17,7 +17,7 @@ $(document).ready(function () {
             <header>
               <span class='avatar'><img src='${avatar}' width='55px' height='55px'></span>
               <h2>${user}</h2>
-              <span class='twt-acct'>${handle}</span>
+              <span class='handle'>${handle}</span>
             </header>
             <div class='content'>${content}</div>
             <footer>

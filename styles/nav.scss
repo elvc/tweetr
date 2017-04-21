@@ -1,0 +1,42 @@
+$brand-color: #00a087;
+$height: 80px;
+.base {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.nav-bar {
+  @extend .base;
+  position: fixed;
+  height: $height;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: $brand-color;
+  font: #e8fdff;
+  padding: 0 2em;
+  z-index: 100;
+  .logo {
+    float: left;
+    width: $height;
+    height: $height;
+  }
+  .header {
+    float: left;
+    margin-left: 10px;
+    line-height: $height;
+    font-size: 2em;
+  }
+  .compose {
+    float: right;
+    padding: 20px;
+    margin-top: 8px;
+    background: #fff;
+    color: $brand-color;
+    border-radius: 10px;
+    font-weight: 700;
+  }
+  .compose:hover {
+    background: #e6e6e6;
+  }
+}

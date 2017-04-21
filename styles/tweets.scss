@@ -1,0 +1,87 @@
+$header-background-color: #d8d8d8;
+$bdr-color: #969696;
+$bdr-radius: 10px;
+
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.tweets-container {
+  position: relative;
+  margin: 0 2em 3em;
+  top: 20px;
+
+  article {
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin: 0 0 30px 0;
+    border: 1px $bdr-color solid;
+
+    &:hover {
+      footer .social {
+        display: inline;
+      }
+    }
+  }
+
+  .avatar {
+    box-sizing: border-box;
+    float: left;
+    padding: 5px;
+    img {
+      border-radius: $bdr-radius;
+    }
+  }
+
+  .content {
+    border-bottom: 1px solid #b4b4b4;
+    padding: 20px;
+    overflow-wrap: break-word;
+  }
+
+  header {
+    border-top-left-radius: $bdr-radius;
+    border-top-right-radius: $bdr-radius;
+    background: $header-background-color;
+    height: 65px;
+
+    h2 {
+      display: inline;
+      float: left;
+      margin-top: 23px;
+      padding: 0 10px;
+      line-height: 0.7;
+    }
+
+    .handle {
+      float: right;
+      padding: 10px;
+      margin-top: 11px;
+    }
+
+    &:after {
+      @extend .clearfix;
+    }
+  }
+  footer {
+    height: 40px;
+    
+    .postdate {
+      float: left;
+      padding: 10px;
+    }
+
+    .social {
+      display: none;
+      color: #07b284;
+      float: right;
+      padding: 10px;
+      
+      span {
+        padding: 5px;
+      }
+    }
+  }
+}
