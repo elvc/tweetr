@@ -1,6 +1,5 @@
 $brand-color: #00a087;
 $height: 80px;
-
 .base {
   box-sizing: border-box;
   width: 100%;
@@ -9,35 +8,63 @@ $height: 80px;
 .nav-bar {
   @extend .base;
   position: fixed;
-  height: $height;
+  height: $height * 0.8;
   top: 0;
   left: 0;
   right: 0;
   background: $brand-color;
   font: #e8fdff;
-  padding: 0 2em;
+  padding: 0 1em;
   z-index: 100;
   .logo {
     float: left;
-    width: $height;
-    height: $height;
+    width: $height * 0.8;
+    height: $height * 0.8;
   }
   .header {
     float: left;
-    margin-left: 10px;
-    line-height: $height;
-    font-size: 2em;
+    margin-left: 8px;
+    line-height: $height * 0.8;
+    font-size: 1em;
   }
   .compose {
     float: right;
-    padding: 20px;
-    margin-top: 8px;
+    padding: 10px;
+    margin-top: 12px;
     background: #fff;
     color: $brand-color;
-    border-radius: 10px;
+    border-radius: 5px;
     font-weight: 700;
   }
   .compose:hover {
     background: #e6e6e6;
+  }
+}
+
+@media (min-width: $breakpoint) {
+  .nav-bar {
+    height: $height;
+    .logo {
+      width: $height;
+      height: $height;
+    }
+    .header {
+      float: left;
+      margin-left: 10px;
+      line-height: $height;
+      font-size: 2em;
+    }
+    .compose {
+      float: right;
+      padding: 20px;
+      margin-top: 8px;
+      background: #fff;
+      color: $brand-color;
+      border-radius: 10px;
+      font-weight: 700;
+    }
+    .compose:hover {
+      background: #e6e6e6;
+    }
   }
 }

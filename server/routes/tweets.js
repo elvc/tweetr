@@ -5,9 +5,9 @@ const userHelper    = require('../lib/util/user-helper')
 const express       = require('express');
 const tweetsRoutes  = express.Router();
 
-module.exports = function(DataHelpers) {
+module.exports = function (DataHelpers) {
 
-  tweetsRoutes.get('/', function(req, res) {
+  tweetsRoutes.get('/', (req, res) => {
     DataHelpers.getTweets((err, tweets) => {
       if (err) {
         res.status(500).json({ error: err.message });
@@ -17,7 +17,7 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.post('/', function(req, res) {
+  tweetsRoutes.post('/', (req, res) => {
     if (!req.body.text) {
       res.status(400).json({ error: 'invalid request: no data in POST body' });
       return;
@@ -42,10 +42,10 @@ module.exports = function(DataHelpers) {
     });
   });
 
-  tweetsRoutes.put('/:id/:like', function(req, res) {
+  tweetsRoutes.put('/:id/:like', (req, res) => {
 
     const tweetId = req.params.id;
-    const like = parseInt(req.params.like);
+    const like = Number(req.params.like);
     
     DataHelpers.updateLikes(tweetId, like, (err) => {
       if (err) {

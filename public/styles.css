@@ -17,9 +17,13 @@ body {
 
 main {
   background: #fff;
-  width: 450px;
+  width: 90%;
   height: 100%;
   margin: 80px auto 0; }
+
+@media (min-width: 450px) {
+  main {
+    width: 450px; } }
 
 .base, .nav-bar {
   box-sizing: border-box;
@@ -27,33 +31,55 @@ main {
 
 .nav-bar {
   position: fixed;
-  height: 80px;
+  height: 64px;
   top: 0;
   left: 0;
   right: 0;
   background: #00a087;
   font: #e8fdff;
-  padding: 0 2em;
+  padding: 0 1em;
   z-index: 100; }
   .nav-bar .logo {
     float: left;
-    width: 80px;
-    height: 80px; }
+    width: 64px;
+    height: 64px; }
   .nav-bar .header {
     float: left;
-    margin-left: 10px;
-    line-height: 80px;
-    font-size: 2em; }
+    margin-left: 8px;
+    line-height: 64px;
+    font-size: 1em; }
   .nav-bar .compose {
     float: right;
-    padding: 20px;
-    margin-top: 8px;
+    padding: 10px;
+    margin-top: 12px;
     background: #fff;
     color: #00a087;
-    border-radius: 10px;
+    border-radius: 5px;
     font-weight: 700; }
   .nav-bar .compose:hover {
     background: #e6e6e6; }
+
+@media (min-width: 450px) {
+  .nav-bar {
+    height: 80px; }
+    .nav-bar .logo {
+      width: 80px;
+      height: 80px; }
+    .nav-bar .header {
+      float: left;
+      margin-left: 10px;
+      line-height: 80px;
+      font-size: 2em; }
+    .nav-bar .compose {
+      float: right;
+      padding: 20px;
+      margin-top: 8px;
+      background: #fff;
+      color: #00a087;
+      border-radius: 10px;
+      font-weight: 700; }
+    .nav-bar .compose:hover {
+      background: #e6e6e6; } }
 
 .clearfix, .new-tweet form:after, .tweets-container header:after {
   content: "";

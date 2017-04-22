@@ -47,7 +47,7 @@ $(document).ready(function () {
 
       event.preventDefault();
 
-      let parsedLikes = parseInt($likey.text());
+      let parsedLikes = Number($likey.text());
 
       if ($this.hasClass('unlike')) {
         $this.addClass('like');
@@ -83,7 +83,6 @@ $(document).ready(function () {
     });
   }
 
-  // initial load
   loadTweets();
 
   $('form').on('submit', function (event) {
