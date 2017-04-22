@@ -49,22 +49,13 @@ $height: 80px;
       height: $height;
     }
     .header {
-      float: left;
       margin-left: 10px;
       line-height: $height;
       font-size: 2em;
     }
     .compose {
-      float: right;
       padding: 20px;
       margin-top: 8px;
-      background: #fff;
-      color: $brand-color;
-      border-radius: 10px;
-      font-weight: 700;
-    }
-    .compose:hover {
-      background: #e6e6e6;
     }
   }
 }

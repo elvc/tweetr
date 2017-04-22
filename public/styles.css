@@ -66,20 +66,12 @@ main {
       width: 80px;
       height: 80px; }
     .nav-bar .header {
-      float: left;
       margin-left: 10px;
       line-height: 80px;
       font-size: 2em; }
     .nav-bar .compose {
-      float: right;
       padding: 20px;
-      margin-top: 8px;
-      background: #fff;
-      color: #00a087;
-      border-radius: 10px;
-      font-weight: 700; }
-    .nav-bar .compose:hover {
-      background: #e6e6e6; } }
+      margin-top: 8px; } }
 
 .clearfix, .new-tweet form:after, .tweets-container header:after {
   content: "";
