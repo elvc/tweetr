@@ -10,6 +10,18 @@ Tweeter is a simple, single-page Twitter clone.
 
 - User can submit new tweets and like posts.
 
+### Getting Started
+
+- Install dependencies using the `npm install` command.
+- Start the web server using the `npm run local` command. The app will be served at `http://localhost:8080/`.
+- Go to `http://localhost:8080/` in your browser.
+
+### Dependencies
+
+- Express
+- Node 5.10.x or above
+
 ### Potential Improvements
-- User can like a post again after page refresh. This is due to the fact that the app does not keep track of who has liked the post, nor have implemented the account managemnet. 
-- However the basic functionality works and the likes are being recorded on MongoDB.
+- Currently, you can like a post again after page refresh. 
+    - This is expected because the app have not implemented the account management system, hence the inability to record click history by each users. 
+    - However, the basic functionality works and the total likes for each tweet is being recorded on MongoDB.
