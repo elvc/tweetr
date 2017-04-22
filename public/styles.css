@@ -1,20 +1,12 @@
 @import url("/vendor/normalize-4.1.1.css");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 @import url("https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,700,700i");
-/*
-* http://www.paulirish.com/2012/box-sizing-border-box-ftw/
-* https://css-tricks.com/international-box-sizing-awareness-day/
-* Do not modify these two selectors, please
-*/
 html {
   box-sizing: border-box; }
 
 *, *:before, *:after {
   box-sizing: inherit; }
 
-/*
-* Global layout stuff
-*/
 * {
   font-family: 'Roboto Condensed', sans-serif; }
 
@@ -23,9 +15,6 @@ body {
   color: #244751;
   background-color: #eee; }
 
-/*
-* Additional CSS can be defined below or in other CSS files, as per instructions
-*/
 main {
   background: #fff;
   width: 450px;
@@ -107,10 +96,8 @@ main {
     line-height: 38px;
     font-style: italic; }
 
-.clearfix, .new-tweet form:after, .tweets-container header:after {
-  content: "";
-  display: table;
-  clear: both; }
+.like {
+  color: #ff0000; }
 
 .tweets-container {
   position: relative;
@@ -120,7 +107,7 @@ main {
     border-radius: 10px;
     box-sizing: border-box;
     margin: 0 0 30px 0;
-    border: 1px #969696 solid; }
+    border: 1px #c8c8c8 solid; }
     .tweets-container article:hover footer .social {
       display: inline; }
   .tweets-container .avatar {
@@ -155,7 +142,7 @@ main {
       padding: 10px; }
     .tweets-container footer .social {
       display: none;
-      color: #07b284;
+      color: #00a087;
       float: right;
       padding: 10px; }
       .tweets-container footer .social span {

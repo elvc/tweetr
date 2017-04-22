@@ -8,10 +8,12 @@ $(document).ready(function () {
 
   function createTweetElement(tData) {
     const user = tData.user.name;
+    const id = tData._id;
     const handle = tData.user.handle;
     const avatar = tData.user.avatars.small;
     const content = escape(tData.content.text);
     const dateAgo = moment(tData.created_at).fromNow();
+    const likes = tData.likes;
 
     return `<article>
             <header>
@@ -25,7 +27,7 @@ $(document).ready(function () {
               <div class='social'>
                 <span><i class='fa fa-flag' aria-hidden='true'></i></span>
                 <span><i class='fa fa-retweet' aria-hidden='true'></i></span>
-                <span><i class='fa fa-heart' aria-hidden='true'></i></span>
+                <i class='fa fa-heart unlike' aria-hidden='true'></i><span class='likey' data-twtid=${id}> ${likes} </span>
               </div>
             </footer>
           </article>`;
@@ -36,6 +38,39 @@ $(document).ready(function () {
     tweets.forEach((element) => {
       const tweet = createTweetElement(element);
       $('.tweets-container').append(tweet);
+    });
+
+    $('.fa-heart').on('click', function () {
+      $this = $(this);
+      $likey = $(this).siblings('.likey');
+      id = $likey.data('twtid');
+
+      event.preventDefault();
+
+      let parsedLikes = parseInt($likey.text());
+
+      if ($this.hasClass('unlike')) {
+        $this.addClass('like');
+        $this.removeClass('unlike');
+
+        $likey.text(++parsedLikes);
+
+        $.ajax({
+          url: `/tweets/${id}/1`,
+          method: 'PUT'
+        });
+        
+      } else {
+        $this.addClass('unlike');
+        $this.removeClass('like');
+
+        $likey.text(--parsedLikes);
+
+        $.ajax({
+          url: `/tweets/${id}/-1`,
+          method: 'PUT'
+        });
+      }
     });
   }
 
@@ -71,4 +106,5 @@ $(document).ready(function () {
     $('.new-tweet').slideToggle();
     $('textarea').focus();
   });
+
 });
