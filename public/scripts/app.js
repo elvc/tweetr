@@ -41,9 +41,9 @@ $(document).ready(function () {
     });
 
     $('.fa-heart').on('click', function () {
-      $this = $(this);
-      $likey = $(this).siblings('.likey');
-      id = $likey.data('twtid');
+      const $this = $(this);
+      const $likey = $(this).siblings('.likey');
+      const id = $likey.data('twtid');
 
       event.preventDefault();
 
@@ -86,6 +86,7 @@ $(document).ready(function () {
   loadTweets();
 
   $('form').on('submit', function (event) {
+    const $this = $(this);
     event.preventDefault();
     $.ajax({
       url: '/tweets',
@@ -105,5 +106,4 @@ $(document).ready(function () {
     $('.new-tweet').slideToggle();
     $('textarea').focus();
   });
-
 });
