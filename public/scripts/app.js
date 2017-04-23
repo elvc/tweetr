@@ -1,5 +1,4 @@
 $(document).ready(function () {
-
   function escape(str) {
     const div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -16,21 +15,30 @@ $(document).ready(function () {
     const likes = tData.likes;
 
     return `<article>
-            <header>
-              <span class='avatar'><img src='${avatar}' width='55px' height='55px'></span>
-              <h2>${user}</h2>
-              <span class='handle'>${handle}</span>
-            </header>
-            <div class='content'>${content}</div>
-            <footer>
-              <span class='postdate'>${dateAgo}</span>
-              <div class='social'>
-                <span><i class='fa fa-flag' aria-hidden='true'></i></span>
-                <span><i class='fa fa-retweet' aria-hidden='true'></i></span>
-                <i class='fa fa-heart unlike' aria-hidden='true'></i><span class='likey' data-twtid=${id}> ${likes} </span>
-              </div>
-            </footer>
-          </article>`;
+          <header>
+            <span class='avatar'><img src='${avatar}' width='55px' height='55px'></span>
+            <h2>${user}</h2>
+            <span class='handle'>${handle}</span>
+          </header>
+          <div class='content'>${content}</div>
+          <footer>
+            <span class='postdate'>${dateAgo}</span>
+            <div class='social'>
+              <span><i class='fa fa-flag' aria-hidden='true'></i></span>
+              <span><i class='fa fa-retweet' aria-hidden='true'></i></span>
+              <i class='fa fa-heart unlike' aria-hidden='true'></i><span class='likey' data-twtid=${id}> ${likes} </span>
+            </div>
+          </footer>
+        </article>`;
+  }
+
+  function loadTweets() {
+    $.ajax({
+      url: '/tweets',
+      method: 'GET',
+      dataType: 'json',
+      success: renderTweets
+    });
   }
 
   function renderTweets(tweets) {
@@ -40,10 +48,10 @@ $(document).ready(function () {
       $('.tweets-container').append(tweet);
     });
 
-    $('.fa-heart').on('click', function () {
-      $this = $(this);
-      $likey = $(this).siblings('.likey');
-      id = $likey.data('twtid');
+    $('.fa-heart').on('click', function (event) {
+      const $this = $(this);
+      const $likey = $(this).siblings('.likey');
+      const id = $likey.data('twtid');
 
       event.preventDefault();
 
@@ -59,7 +67,7 @@ $(document).ready(function () {
           url: `/tweets/${id}/1`,
           method: 'PUT'
         });
-        
+
       } else {
         $this.addClass('unlike');
         $this.removeClass('like');
@@ -74,18 +82,8 @@ $(document).ready(function () {
     });
   }
 
-  function loadTweets() {
-    $.ajax({
-      url: '/tweets',
-      method: 'GET',
-      dataType: 'json',
-      success: renderTweets
-    });
-  }
-
-  loadTweets();
-
-  $('form').on('submit', function (event) {
+  function submitTweet(event) {
+    const $this = $(this);
     event.preventDefault();
     $.ajax({
       url: '/tweets',
@@ -99,11 +97,17 @@ $(document).ready(function () {
         $this.siblings('.error').text('Write something!');
       }
     });
-  });
+  }
 
-  $('.compose').on('click', () => {
+  function slideCompose() {
     $('.new-tweet').slideToggle();
     $('textarea').focus();
-  });
+  }
 
+  // ========================================================================
+
+  loadTweets();
+
+  $('form').on('submit', submitTweet);
+  $('.compose').on('click', slideCompose);
 });

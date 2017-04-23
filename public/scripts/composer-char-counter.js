@@ -7,8 +7,9 @@ function getCharRemaining() {
     $this.siblings('.counter').css('color', 'red');
     $this.siblings('.submit-btn').attr('disabled', 'disabled');
     $this.siblings('.error').text('Exceeded character limit');
-
-  } else if ($this.val().length === 0) {
+  } 
+  
+  if ($this.val().length === 0) {
     $this.siblings('.submit-btn').attr('disabled', 'disabled');
     $this.siblings('.error').text('Write something!');
 
