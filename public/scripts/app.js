@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  // prevent script injection
   function escape(str) {
     const div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
@@ -26,7 +27,7 @@ $(document).ready(function () {
             <div class='social'>
               <span><i class='fa fa-flag' aria-hidden='true'></i></span>
               <span><i class='fa fa-retweet' aria-hidden='true'></i></span>
-              <i class='fa fa-heart unlike' aria-hidden='true'></i><span class='likey' data-twtid=${id}> ${likes} </span>
+              <i class='fa fa-heart like-btn unlike' aria-hidden='true'></i><span class='likey' data-twtid=${id}> ${likes} </span>
             </div>
           </footer>
         </article>`;
@@ -48,7 +49,8 @@ $(document).ready(function () {
       $('.tweets-container').append(tweet);
     });
 
-    $('.fa-heart').on('click', function (event) {
+    // clicking the like button
+    $('.like-btn').on('click', function (event) {
       const $this = $(this);
       const $likey = $(this).siblings('.likey');
       const id = $likey.data('twtid');
@@ -57,18 +59,21 @@ $(document).ready(function () {
 
       let parsedLikes = Number($likey.text());
 
+      // toggle between likes and unlike
       if ($this.hasClass('unlike')) {
         $this.addClass('like');
         $this.removeClass('unlike');
 
         $likey.text(++parsedLikes);
 
+        // add one like
         $.ajax({
           url: `/tweets/${id}/1`,
           method: 'PUT'
         });
 
       } else {
+        // subtract one like
         $this.addClass('unlike');
         $this.removeClass('like');
 
@@ -98,7 +103,8 @@ $(document).ready(function () {
       }
     });
   }
-
+  
+  // slide toggle for the "Compose" button
   function slideCompose() {
     $('.new-tweet').slideToggle();
     $('textarea').focus();
@@ -106,6 +112,7 @@ $(document).ready(function () {
 
   // ========================================================================
 
+  // initial load
   loadTweets();
 
   $('form').on('submit', submitTweet);
