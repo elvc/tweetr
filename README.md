@@ -11,7 +11,7 @@ Tweeter is a simple, single-page Twitter clone.
 - User can submit new tweets and like posts.
 
 ### Getting Started
-
+- Install MongoDB locally and run `mongod`
 - Install dependencies using the `npm install` command.
 - Start the web server using the `npm run local` command. The app will be served at `http://localhost:8080/`.
 - Go to `http://localhost:8080/` in your browser.
